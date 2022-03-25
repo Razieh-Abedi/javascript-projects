@@ -22,7 +22,13 @@
       <div class="row mb-3">
         <label for="input-name" class="col-2 col-form-label">Name</label>
         <div class="col-10">
-          <input type="text" class="form-control" id="input-name" value="" />
+          <input
+            type="text"
+            class="form-control"
+            id="input-name"
+            value=""
+            required
+          />
         </div>
       </div>
       <div class="row mb-3">
@@ -30,6 +36,9 @@
         <div class="col-10">
           <input
             type="number"
+            min="2"
+            max="120"
+            step="1"
             class="form-control"
             id="input-age"
             value=""
@@ -38,26 +47,26 @@
         </div>
       </div>
       <fieldset class="row mb-3">
-        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-        <div class="col-sm-5 form-check">
+        <legend class="col-form-label col-sm-4 pt-0">Gender</legend>
+        <div class="col-sm-4 form-check">
           <input
             class="form-check-input"
             type="radio"
             name="gridRadios"
             id="Female"
             value="option1"
+            checked
             required
           />
           <label class="form-check-label" for="Female"> Female </label>
         </div>
-        <div class="col-sm-5 form-check">
+        <div class="col-sm-4 form-check">
           <input
             class="form-check-input"
             type="radio"
             name="gridRadios"
             id="Male"
             value="option2"
-            checked
             required
           />
           <label class="form-check-label" for="Male"> Male </label>
