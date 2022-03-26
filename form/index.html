@@ -133,6 +133,7 @@
                 name="gridRadios"
                 id="gender-female-box"
                 value="option1"
+                checked
                 required
               />
               <label class="form-check-label" for="gender-female-box">
@@ -179,14 +180,24 @@
             <label for="passport-attach" class="form-label"
               >Attache the first page of your passport.</label
             >
-            <input class="form-control" type="file" id="passport-attach" />
+            <input
+              class="form-control"
+              type="file"
+              id="passport-attach"
+              required
+            />
             <div class="invalid-feedback">Please attach you passport.</div>
           </div>
           <div class="col mb-3">
             <label for="photo-attach" class="form-label"
               >Attach your passport photo.</label
             >
-            <input class="form-control" type="file" id="photo-attach" />
+            <input
+              class="form-control"
+              type="file"
+              id="photo-attach"
+              required
+            />
             <div class="invalid-feedback">
               Please attach your passport photo.
             </div>
@@ -201,6 +212,7 @@
               value=""
               id="html"
               required
+              checked
             />
             <label class="form-check-label" for="html"> HTML </label>
             <div class="invalid-feedback"></div>
@@ -271,9 +283,7 @@
               rows="5"
               placeholder="description"
             ></textarea>
-            <label for="description" class="form-label"
-              >Description <span class="text-danger">*</span></label
-            >
+            <label for="description" class="form-label">Description</label>
             <div class="invalid-feedback"></div>
           </div>
         </div>
