@@ -25,3 +25,12 @@ let bmiCalculator = weight / (height * height);
 //   else if ((age > 18) & (40 <= bmiCalculator))
 //     return "Dear " + name + " , you are obese class three.";
 // }
+
+function adultBmiResult(bmiCalculator, name, age) {
+  if ((age > 18) {
+      if (bmiCalculator > 16) result.innerHTML = "Dear " + name + " , you are severely thin.";
+      else if (16 <= bmiCalculator < 17) result.innerHTML = "Dear " + name + " , you are moderately thin.";
+  }
+  else if result.innerHTML = "Dear " + name + " , you are normal.";
+}
+  
