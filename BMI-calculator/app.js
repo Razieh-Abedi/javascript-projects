@@ -7,8 +7,6 @@ let weight = document.getElementById("input-weight").value;
 let result = document.querySelector("#result");
 let bmiCalculator = weight / (height * height);
 
-console.log(adultBmiResult(bmiCalculator1, name1, age1));
-
 function adultBmiResult(bmiCalculator, name, age) {
   if (age > 18) {
     if (bmiCalculator < 16) {
@@ -32,3 +30,7 @@ function adultBmiResult(bmiCalculator, name, age) {
     result.innerText =
       "Dear " + name + " , you are not whithin the normal range";
 }
+
+document.querySelector(".submit-btn").addEventListener("click", function () {
+  console.log(adultBmiResult(bmiCalculator, name, age));
+});
