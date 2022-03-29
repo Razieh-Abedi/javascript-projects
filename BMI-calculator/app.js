@@ -1,21 +1,15 @@
-let name = document.getElementById("input-name").value;
-let age = document.getElementById("input-age").value;
-let female = (document.getElementById("Female").selected = true);
-let male = (document.getElementById("Male").selected = true);
-let height = document.getElementById("input-height").value;
-let weight = document.getElementById("input-weight").value;
-let result = document.querySelector("#result");
-let bmiCalculator = weight / (height * height);
+// 0<x<3   =>   x>0 && x<3
+// &&  ||  !
 
 function adultBmiResult(bmiCalculator, name, age) {
   if (age > 18) {
     if (bmiCalculator < 16) {
       result.innerText = "Dear " + name + " , you are severely thin.";
-    } else if (16 <= bmiCalculator < 17) {
+    } else if (16 <= bmiCalculator  &&  bmiCalculator< 17) {
       result.innerText = "Dear " + name + " , you are moderately thin.";
-    } else if ((17 <= bmiCalculator) & (bmiCalculator < 18.5)) {
+    } else if ((17 <= bmiCalculator) && (bmiCalculator < 18.5)) {
       result.innerText = "Dear " + name + " , you are mildly thin.";
-    } else if (18.5 <= bmiCalculator < 25) {
+    } else if ( 18.5 <= bmiCalculator && bmiCalculator < 25) {
       result.innerText = "Dear " + name + " , you are normal.";
     } else if (25 <= bmiCalculator < 30) {
       result.innerText = "Dear " + name + " , you are overweight.";
@@ -32,5 +26,15 @@ function adultBmiResult(bmiCalculator, name, age) {
 }
 
 document.querySelector(".submit-btn").addEventListener("click", function () {
-  console.log(adultBmiResult(bmiCalculator, name, age));
+  let name = document.getElementById("input-name").value;
+  let age = document.getElementById("input-age").value;
+  let female = (document.getElementById("Female").selected = true);
+  let male = (document.getElementById("Male").selected = true);
+  let height = document.getElementById("input-height").value;
+  let weight = document.getElementById("input-weight").value;
+  let result = document.querySelector("#result");
+  let heightMeter = height / 100;
+  let bmiCalculator = weight / (heightMeter * heightMeter);
+  console.log(bmiCalculator);
+  adultBmiResult(bmiCalculator, name, age);
 });
