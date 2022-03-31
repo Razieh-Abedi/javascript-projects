@@ -14,11 +14,18 @@
 
 document.querySelector(".submit-btn").addEventListener("click", () => {
   let firstName = document.getElementById("first-name");
-  let firstNameLabelText =
-    document.querySelector(".first-name-label").innerText;
-  if (firstName.value == "") {
-    firstName.style.background = "#e2a5a5";
-    // firstNameLabelText.style.transition = "transform scale(2, 0.5)";
+  let firstNameValue = firstName.value;
+  let firstNameError = document.querySelector(".invalid-first-name");
+  let firstNameLabel = document.querySelector(".first-name-label");
+  let regExFirstName = /^[A-Za-z]+$/;
+  if (firstNameValue == "") {
+    firstName.style.border = "1px solid red";
+    firstNameError.innerText = "Enter your first name!";
+    // firstNameError.style.transform = "scale(1.2)";
+  } else if (!regExFirstName.test(firstNameValue)) {
+    firstName.style.border = "1px solid #3f51db";
+    firstNameLabel.innerText = "You forgot your first name?";
+    firstNameLabel.classList.add("text-danger");
   }
   let passWord = document.getElementById("password");
   if (passWord.value < 6) {
@@ -27,18 +34,28 @@ document.querySelector(".submit-btn").addEventListener("click", () => {
   }
   let lastName = document.getElementById("last-name");
   let lastNameValue = lastName.value;
-  if (lastNameValue.length < 4) {
+  let regExLastName = /^[A-Za-z]+$/;
+  if (lastNameValue == "") {
+    document.querySelector(".valid-ln").innerText = "Enter your last name!";
+  } else if (!regExLastName.test(lastNameValue)) {
     document.querySelector(".valid-ln").innerText =
       "Please enter a valid last name!";
   }
-  let email = document.getElementById("email-address");
-  let emailValue = email.value;
-  let emailTemp = emailValue.slice(emailValue.length - 4);
+  // if (!regExLastName.test(lastNameValue)) {
+  //   document.querySelector(".valid-ln").innerText =
+  //     "Please enter a valid last name!";
+  //   lastName.style.border = "1px solid red";
+  // } else if (lastNameValue == "") {
+  //   document.querySelector(".valid-ln").innerText = "Enter your last name!";
+  // }
+  // let email = document.getElementById("email-address");
+  // let emailValue = email.value;
+  // let emailTemp = emailValue.slice(emailValue.length - 4);
 
-  if (emailTemp !== ".com") {
-    document.querySelector(".valid-email").innerText =
-      "Your email address is not vaild!";
-  }
+  // if (emailTemp !== ".com") {
+  //   document.querySelector(".valid-email").innerText =
+  //     "Your email address is not vaild!";
+  // }
 });
 
 ////////Event handler practice///////
@@ -60,3 +77,28 @@ function validAddress() {
     document.querySelector(".address-label").innerText = "";
   }
 }
+
+/////form validation with regualr expressions//////
+// function validateEmail() {
+//   let email = document.getElementById("email-address");
+//   let emailValue = email.value;
+//   let emailError = document.querySelector(".valid-email");
+//   let regExEmail =
+//     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//   if (!regExEmail.test(emailValue)) {
+//     emailError.innerText = "Please enter a vaild email address!";
+//   }
+// }
+// console.log(validateEmail(emailValue, emailError));
+
+document.querySelector(".submit-btn").addEventListener("click", () => {
+  let email = document.getElementById("email-address");
+  let emailValue = email.value;
+  let emailError = document.querySelector(".valid-email");
+  let regExEmail =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (!regExEmail.test(emailValue)) {
+    emailError.innerText = "Invalid email address!";
+    email.style.border = "1px solid red";
+  }
+});
