@@ -26,18 +26,35 @@ function adultBmiResult(bmiCalculator, name, age) {
       "Dear " + name + " , you are not whithin the normal range";
 }
 
+function femaleChildrenBmiResult(age, female, name, bmiCalculator) {
+  if (2 < age && age <= 18 && female) {
+    if (16 <= bmiCalculator && bmiCalculator < 20) {
+      result.innerText = "Dear " + name + " , you are thin.";
+    } else if (20 < bmiCalculator && bmiCalculator <= 25) {
+      result.innerText = "Dear " + name + " , you are normal. ";
+    } else if (25 < bmiCalculator && bmiCalculator <= 30) {
+      result.innerText = "Dear " + name + " , you are overweight.";
+    }
+  } else {
+    result.innerText =
+      "Dear " + name + " , you are not within the normal range ";
+  }
+}
+
 document.querySelector(".submit-btn").addEventListener("click", function () {
   let name = document.getElementById("input-name").value;
   let age = document.getElementById("input-age").value;
   let height = document.getElementById("input-height").value;
   let weight = document.getElementById("input-weight").value;
   let heightMeter = height / 100;
+  let female = (document.getElementById("Female").selected = true);
   let bmiCalculator = weight / (heightMeter * heightMeter);
   adultBmiResult(bmiCalculator, name, age);
   let result = document.querySelector("#result");
+  femaleChildrenBmiResult(bmiCalculator, name, female, age);
+  console.log(femaleChildrenBmiResult(bmiCalculator, name, female, age));
   // let reslutText = result.innerText;
   // reslutText.style.background = "red!important";
 });
 
-let female = (document.getElementById("Female").selected = true);
 let male = (document.getElementById("Male").selected = true);
