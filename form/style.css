@@ -7,3 +7,26 @@
 #password-icon-hide {
   display: none;
 }
+.password-strength .password-strength-color {
+  width: 20px;
+  height: 6px;
+  display: none;
+}
+#password-strength-text {
+  padding-left: 10px;
+}
+/* .password-strength .color-1 {
+  background: #eb0e0e;
+}
+.password-strength .color-2 {
+  background: #e67777;
+}
+.password-strength .color-3 {
+  background: #afd3b6;
+}
+.password-strength .color-4 {
+  background: #45c05c;
+}
+.password-strength .color-5 {
+  background: #08881f;
+} */
