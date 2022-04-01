@@ -28,9 +28,13 @@ document.querySelector(".submit-btn").addEventListener("click", () => {
     firstNameLabel.classList.add("text-danger");
   }
   let passWord = document.getElementById("password");
-  if (passWord.value < 6) {
+  if (passWord.value == "") {
+    document.querySelector(".validpass").innerText = "Enter your password!";
+    passWord.style.border = "1px solid red";
+  } else if (passWord.value.length < 8) {
     document.querySelector(".validpass").innerText =
-      "Your password should be at least 6 characters!";
+      " Your password should be at least 8 characters!";
+    passWord.style.border = "1px solid red";
   }
   let lastName = document.getElementById("last-name");
   let lastNameValue = lastName.value;
@@ -101,4 +105,22 @@ document.querySelector(".submit-btn").addEventListener("click", () => {
     emailError.innerText = "Invalid email address!";
     email.style.border = "1px solid red";
   }
+});
+
+document.getElementById("password-icon-show").addEventListener("click", () => {
+  let passwordHide = document.getElementById("password-icon-hide");
+  let passWord = document.getElementById("password");
+  let passwordShow = document.getElementById("password-icon-show");
+  passWord.type = "text";
+  passwordShow.style.display = "none";
+  passwordHide.style.display = "inline";
+});
+
+document.getElementById("passwordHide").addEventListener("click", () => {
+  let passwordHide = document.getElementById("password-icon-hide");
+  let passWord = document.getElementById("password");
+  let passwordShow = document.getElementById("password-icon-show");
+  passWord.type = "password";
+  passwordHide.style.display = "none";
+  passwordShow.style.display = "inline";
 });

@@ -1,4 +1,9 @@
-/* .message #description {
-  width: 100%;
-  height: 100%;
-} */
+.password-icon {
+  right: 15px;
+  top: -47px;
+  font-size: 16pt;
+  cursor: pointer;
+}
+#password-icon-hide {
+  display: none;
+}
