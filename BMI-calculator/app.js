@@ -39,9 +39,9 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
 });
 
 ///////BMI calculator for female children//////
-function femaleChildrenBmiResult(age, female, name, bmiCalculator) {
-  let female = (document.getElementById("Female").selected = true);
-  if (2 < age && age <= 18 && female) {
+function femaleChildrenBmiResult(bmiCalculator, name, age) {
+  // let female = document.getElementById("Female").checked;
+  if (2 < age && age <= 18) {
     if (16 <= bmiCalculator && bmiCalculator < 20) {
       result.innerText = "Dear " + name + " , you are thin.";
     } else if (20 < bmiCalculator && bmiCalculator <= 25) {
@@ -54,6 +54,7 @@ function femaleChildrenBmiResult(age, female, name, bmiCalculator) {
       "Dear " + name + " , you are not within the normal range ";
   }
 }
+
 document.querySelector(".submit-btn").addEventListener("click", function () {
   let name = document.getElementById("input-name").value;
   let age = document.getElementById("input-age").value;
@@ -62,5 +63,5 @@ document.querySelector(".submit-btn").addEventListener("click", function () {
   let heightMeter = height / 100;
   let result = document.querySelector("#result");
   let bmiCalculator = weight / (heightMeter * heightMeter);
-  femaleChildrenBmiResult(bmiCalculator, name, female, age);
+  femaleChildrenBmiResult(bmiCalculator, name, age);
 });
