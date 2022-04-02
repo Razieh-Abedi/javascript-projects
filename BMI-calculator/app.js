@@ -2,6 +2,7 @@
 ///logical operators////
 // &&  ||  !
 
+/////BMI calculator for adults//////
 function adultBmiResult(bmiCalculator, name, age) {
   if (age > 18) {
     if (bmiCalculator < 16) {
@@ -26,7 +27,20 @@ function adultBmiResult(bmiCalculator, name, age) {
       "Dear " + name + " , you are not whithin the normal range";
 }
 
+document.querySelector(".submit-btn").addEventListener("click", function () {
+  let name = document.getElementById("input-name").value;
+  let age = document.getElementById("input-age").value;
+  let height = document.getElementById("input-height").value;
+  let weight = document.getElementById("input-weight").value;
+  let heightMeter = height / 100;
+  let result = document.querySelector("#result");
+  let bmiCalculator = weight / (heightMeter * heightMeter);
+  adultBmiResult(bmiCalculator, name, age);
+});
+
+///////BMI calculator for female children//////
 function femaleChildrenBmiResult(age, female, name, bmiCalculator) {
+  let female = (document.getElementById("Female").selected = true);
   if (2 < age && age <= 18 && female) {
     if (16 <= bmiCalculator && bmiCalculator < 20) {
       result.innerText = "Dear " + name + " , you are thin.";
@@ -40,21 +54,13 @@ function femaleChildrenBmiResult(age, female, name, bmiCalculator) {
       "Dear " + name + " , you are not within the normal range ";
   }
 }
-
 document.querySelector(".submit-btn").addEventListener("click", function () {
   let name = document.getElementById("input-name").value;
   let age = document.getElementById("input-age").value;
   let height = document.getElementById("input-height").value;
   let weight = document.getElementById("input-weight").value;
   let heightMeter = height / 100;
-  let female = (document.getElementById("Female").selected = true);
-  let bmiCalculator = weight / (heightMeter * heightMeter);
-  adultBmiResult(bmiCalculator, name, age);
   let result = document.querySelector("#result");
+  let bmiCalculator = weight / (heightMeter * heightMeter);
   femaleChildrenBmiResult(bmiCalculator, name, female, age);
-  console.log(femaleChildrenBmiResult(bmiCalculator, name, female, age));
-  // let reslutText = result.innerText;
-  // reslutText.style.background = "red!important";
 });
-
-let male = (document.getElementById("Male").selected = true);

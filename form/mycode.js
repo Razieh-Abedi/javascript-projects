@@ -137,11 +137,10 @@ document.getElementById("password").addEventListener("keyup", () => {
   let passStrengthColor2 = document.getElementById("pass-color-2");
   let passStrengthColor3 = document.getElementById("pass-color-3");
   let passStrengthIcon = document.querySelector(".password-strength-icon");
-  let regExpasswordStrength1 = /^[A-Za-z]+$/;
-  let regExpasswordStrength2 =
-    /^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))/;
+  let regExpasswordStrength1 = /^[A-Za-z]\w{7,14}$/;
+  let regExpasswordStrength2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
   let regExpasswordStrength3 =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})$/;
   if (regExpasswordStrength1.test(passwordValue)) {
     passStrengthColor1.style.display = "inline-block";
     passStrengthColor1.style.background = "red";
@@ -173,5 +172,6 @@ document.getElementById("password").addEventListener("keyup", () => {
     passStrengthIcon.classList.add("bi-check-all");
     passStrengthIcon.style.color = "green";
     passStrengthIcon.style.display = "inline-block";
+    console.log("strong password");
   }
 });
