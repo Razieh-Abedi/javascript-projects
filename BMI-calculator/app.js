@@ -3,8 +3,8 @@
 // &&  ||  !
 
 /////BMI calculator for adults//////
-function adultBmiResult(bmiCalculator, name, age) {
-  if (age > 18) {
+function adultBmiResult(bmiCalculator, name) {
+  
     if (bmiCalculator < 16) {
       result.innerText = "Dear " + name + " , you are severely thin.";
     } else if (16 <= bmiCalculator && bmiCalculator < 17) {
@@ -22,46 +22,92 @@ function adultBmiResult(bmiCalculator, name, age) {
     } else if (40 <= bmiCalculator) {
       result.innerText = "Dear " + name + " , you are obese class three.";
     }
-  } else
-    result.innerText =
-      "Dear " + name + " , you are not whithin the normal range";
+  
 }
 
-document.querySelector(".submit-btn").addEventListener("click", function () {
-  let name = document.getElementById("input-name").value;
-  let age = document.getElementById("input-age").value;
-  let height = document.getElementById("input-height").value;
-  let weight = document.getElementById("input-weight").value;
-  let heightMeter = height / 100;
-  let result = document.querySelector("#result");
-  let bmiCalculator = weight / (heightMeter * heightMeter);
-  adultBmiResult(bmiCalculator, name, age);
-});
+// document.querySelector(".submit-btn").addEventListener("click", function () {
+//   let name = document.getElementById("input-name").value;
+//   let age = document.getElementById("input-age").value;
+//   let height = document.getElementById("input-height").value;
+//   let weight = document.getElementById("input-weight").value;
+//   let heightMeter = height / 100;
+//   let result = document.querySelector("#result");
+//   let bmiCalculator = weight / (heightMeter * heightMeter);
+//   adultBmiResult(bmiCalculator, name, age);
+// });
 
 ///////BMI calculator for female children//////
-function femaleChildrenBmiResult(bmiCalculator, name, age) {
+function childrenBmiResult(bmiCalculator, name, gender) {
   // let female = document.getElementById("Female").checked;
-  if (2 < age && age <= 18) {
-    if (16 <= bmiCalculator && bmiCalculator < 20) {
+
+  
+ //gender == true ---> female, gender == false ---> male 
+  if (gender) {
+    if (bmiCalculator <16) {
+      result.innerText = "Dear " + name + " , you are very thin.";
+    }else if (16 <= bmiCalculator && bmiCalculator < 20) {
       result.innerText = "Dear " + name + " , you are thin.";
-    } else if (20 < bmiCalculator && bmiCalculator <= 25) {
+    } else if (20 <= bmiCalculator && bmiCalculator < 25) {
       result.innerText = "Dear " + name + " , you are normal. ";
-    } else if (25 < bmiCalculator && bmiCalculator <= 30) {
+    } else if (25 <= bmiCalculator && bmiCalculator < 30) {
+      result.innerText = "Dear " + name + " , you are overweight.";
+    }else{
       result.innerText = "Dear " + name + " , you are overweight.";
     }
-  } else {
-    result.innerText =
-      "Dear " + name + " , you are not within the normal range ";
+  } else {//male
+    if (bmiCalculator <16.5) {
+      result.innerText = "Dear " + name + " , you are very thin.";
+    }else if (16.5 <= bmiCalculator && bmiCalculator < 20.5) {
+      result.innerText = "Dear " + name + " , you are thin.";
+    } else if (20.5 <= bmiCalculator && bmiCalculator < 25.5) {
+      result.innerText = "Dear " + name + " , you are normal. ";
+    } else if (25.5 <= bmiCalculator && bmiCalculator < 30.5) {
+      result.innerText = "Dear " + name + " , you are overweight.";
+    }else{
+      result.innerText = "Dear " + name + " , you are overweight.";
+    }
   }
 }
 
+function resultBMI (bmiCalculator, name, age,gender){
+  // if (female) {
+  //   if (age<2 && age<=18) {
+  //     childrenBmiResult(bmiCalculator, name, female)
+  //   }else{//adulte
+  //     adultBmiResult(bmiCalculator, name) 
+  //   }
+  // }else{//male
+  //   if (age<2 && age<=18) {
+  //     childrenBmiResult(bmiCalculator, name, female)
+  //   }else{//adulte
+  //     adultBmiResult(bmiCalculator, name) 
+  //   }
+  // }
+
+
+  if (age<2 && age<=18){
+    childrenBmiResult(bmiCalculator, name, gender)
+  }else{
+    adultBmiResult(bmiCalculator, name) 
+  }
+
+}
+
 document.querySelector(".submit-btn").addEventListener("click", function () {
   let name = document.getElementById("input-name").value;
   let age = document.getElementById("input-age").value;
   let height = document.getElementById("input-height").value;
   let weight = document.getElementById("input-weight").value;
+  let female = document.getElementById("Female").checked;
+  // if (female) gender="female"
+  // else gender="male"
+  // short if   ?  :
+  //female ?  gender="female" : gender="male"
+  female ?  gender=true : gender=false
+  
+  
   let heightMeter = height / 100;
   let result = document.querySelector("#result");
   let bmiCalculator = weight / (heightMeter * heightMeter);
-  femaleChildrenBmiResult(bmiCalculator, name, age);
+  resultBMI(bmiCalculator, name, age,gender);
 });

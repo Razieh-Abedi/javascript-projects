@@ -32,7 +32,7 @@ document.querySelector(".submit-btn").addEventListener("click", () => {
     document.querySelector(".validpass").innerText = "Enter your password!";
     passWord.style.border = "1px solid red";
   }
-  // else if (passWord.value.length < 8) {
+  //  else if (passWord.value.length < 8) {
   //   document.querySelector(".validpass").innerText =
   //     " Your password should be at least 8 characters!";
   //   passWord.style.border = "1px solid red";
@@ -118,14 +118,14 @@ document.getElementById("password-icon-show").addEventListener("click", () => {
   passwordHide.style.display = "inline";
 });
 
-// document.getElementById("passwordHide").addEventListener("click", () => {
-//   let passwordHide = document.getElementById("password-icon-hide");
-//   let passWord = document.getElementById("password");
-//   let passwordShow = document.getElementById("password-icon-show");
-//   passWord.type = "password";
-//   passwordHide.style.display = "none";
-//   passwordShow.style.display = "inline";
-// });
+document.getElementById("password-icon-hide").addEventListener("click", () => {
+  let passwordHide = document.getElementById("password-icon-hide");
+  let passWord = document.getElementById("password");
+  let passwordShow = document.getElementById("password-icon-show");
+  passWord.type = "password";
+  passwordHide.style.display = "none";
+  passwordShow.style.display = "inline";
+});
 
 ////password strength//////
 document.getElementById("password").addEventListener("keyup", () => {
@@ -137,27 +137,13 @@ document.getElementById("password").addEventListener("keyup", () => {
   let passStrengthColor2 = document.getElementById("pass-color-2");
   let passStrengthColor3 = document.getElementById("pass-color-3");
   let passStrengthIcon = document.querySelector(".password-strength-icon");
-  let regExpasswordStrength1 = /^[A-Za-z]\w{7,14}$/;
-  let regExpasswordStrength2 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+  let regExpasswordStrength1 = /^[A-Za-z]{8,12}$/;
+  let regExpasswordStrength2 = /^[A-Za-z0-9]{8,16}$/;
   let regExpasswordStrength3 =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})$/;
-  if (regExpasswordStrength1.test(passwordValue)) {
-    passStrengthColor1.style.display = "inline-block";
-    passStrengthColor1.style.background = "red";
-    passtext.innerText = "Weak!";
-    passtext.style.color = "red";
-  } else if (regExpasswordStrength2.test(passwordValue)) {
-    passStrengthColor1.style.display = "inline-block";
-    passStrengthColor1.style.background = "blue";
-    passStrengthColor2.style.display = "inline-block";
-    passStrengthColor2.style.background = "blue";
-    passtext.innerText = "Medium!";
-    passtext.style.color = "blue";
-    passStrengthIcon.classList.add("bi");
-    passStrengthIcon.classList.add("bi-check");
-    passStrengthIcon.style.color = "blue";
-    passStrengthIcon.style.display = "inline-block";
-  } else if (regExpasswordStrength3.test(passwordValue)) {
+  /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{8,}$/g;
+  //asdfghjkl;' ggggggggggggggggggg333333333333333 zxceyjgh$12Z
+  //z.yazdani623@gmail.com   yazdani623 
+  if (regExpasswordStrength3.test(passwordValue)) {
     // passColors.style.display = "inline-block";
     // passColors.style.background = "green";
     passStrengthColor1.style.display = "inline-block";
@@ -173,5 +159,28 @@ document.getElementById("password").addEventListener("keyup", () => {
     passStrengthIcon.style.color = "green";
     passStrengthIcon.style.display = "inline-block";
     console.log("strong password");
+  } else if (regExpasswordStrength2.test(passwordValue)) {
+    passStrengthColor1.style.display = "inline-block";
+    passStrengthColor1.style.background = "blue";
+    passStrengthColor2.style.display = "inline-block";
+    passStrengthColor2.style.background = "blue";
+    passtext.innerText = "Medium!";
+    passtext.style.color = "blue";
+    passStrengthIcon.classList.add("bi");
+    passStrengthIcon.classList.add("bi-check");
+    passStrengthIcon.style.color = "blue";
+    passStrengthIcon.style.display = "inline-block";
+  } else if (regExpasswordStrength1.test(passwordValue)) {
+    passStrengthColor1.style.display = "inline-block";
+    passStrengthColor1.style.background = "orange";
+    passStrengthColor2.style.display = "inline-block";
+    passStrengthColor2.style.background = "orange";
+    passtext.innerText = "Weak!";
+    passtext.style.color = "orange";
+  } else {
+    passStrengthColor1.style.display = "inline-block";
+    passStrengthColor1.style.background = "red";
+    passtext.innerText = "Very Weak!";
+    passtext.style.color = "red";
   }
 });
