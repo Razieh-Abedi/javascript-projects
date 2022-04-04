@@ -139,10 +139,9 @@ document.getElementById("password").addEventListener("keyup", () => {
   let passStrengthIcon = document.querySelector(".password-strength-icon");
   let regExpasswordStrength1 = /^[A-Za-z]{8,12}$/;
   let regExpasswordStrength2 = /^[A-Za-z0-9]{8,16}$/;
-  let regExpasswordStrength3 =
-  /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{8,}$/g;
+  let regExpasswordStrength3 = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{8,}$/g;
   //asdfghjkl;' ggggggggggggggggggg333333333333333 zxceyjgh$12Z
-  //z.yazdani623@gmail.com   yazdani623 
+  //z.yazdani623@gmail.com   yazdani623
   if (regExpasswordStrength3.test(passwordValue)) {
     // passColors.style.display = "inline-block";
     // passColors.style.background = "green";
