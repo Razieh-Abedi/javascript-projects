@@ -1,3 +1,4 @@
+//////*************single convertor****** */
 // document.querySelector(".result-arrow").addEventListener("click", () => {
 //   let centimeter = document.getElementById("centimeter");
 //   let meter = document.getElementById("meter");
@@ -6,22 +7,30 @@
 //   centimeter.value = metreToCentimeter;
 //   meter.value = centimeterToMeter;
 // });
-function inchCentimeter(inch, centimeter) {
-  if (inch.selected == true && centimeter.selected == true) {
-    resultLeft.value = centimeterToInch;
-    resultRight.value = inchToCentimeter;
-  }
-}
-document.querySelector(".result-arrow").addEventListener("click", () => {
-  let inch = document.getElementById("inch");
-  let centimeter = document.getElementById("centimeter");
-  let foot = document.getElementById("foot");
-  let meter = document.getElementById("meter");
-  let mile = document.getElementById("mile");
-  let kilometer = document.getElementById("kilometer");
+
+/////************multi convertor************/
+
+document.querySelector(".result-arrow ").addEventListener("click", () => {
   let resultLeft = document.getElementById("result-text-left");
   let resultRight = document.getElementById("result-text-right");
-  let inchToCentimeter = inch.value * 2.54;
-  let centimeterToInch = centimeter.value / 2.54;
-  inchCentimeter(inch, centimeter);
+  let americanUnit = document.getElementById("american-input");
+  let worldUnit = document.getElementById("world-input");
+  let optionFrom = americanUnit.value;
+  let optionTo = worldUnit.value;
+  let inchToCentimeter = resultLeft.value * 2.54;
+  let centimeterToInch = resultRight.value / 2.54;
+  let footToMeter = resultLeft.value / 3.28;
+  let meterToFoot = resultRight.value * 3.28;
+  let mileToKilometer = resultLeft.value * 1.6;
+  let kilometerToMile = resultRight.value / 1.6;
+  if (optionFrom == "inch" && optionTo == "centimeter") {
+    resultRight.value = inchToCentimeter;
+    resultLeft.value = centimeterToInch;
+  } else if (optionFrom == "foot" && optionTo == "meter") {
+    resultRight.value = footToMeter;
+    resultLeft.value = meterToFoot;
+  } else if (optionFrom == "mile" && optionTo == "kilometer") {
+    resultRight.value = mileToKilometer;
+    resultLeft.value = kilometerToMile;
+  }
 });
