@@ -1,4 +1,17 @@
-.result-arrow {
+/* .result-arrow {
   cursor: pointer;
   font-size: 17pt;
+
+} */
+.result-arrow2 {
+  cursor: pointer;
+  font-size: 17pt;
+}
+/* .container {
+  width: 500px;
+} */
+select {
+  width: 190px;
+  text-align: center;
+  height: 30px;
 }
