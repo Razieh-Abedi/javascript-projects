@@ -7,9 +7,9 @@
   cursor: pointer;
   font-size: 17pt;
 }
-/* .container {
+.container {
   width: 500px;
-} */
+}
 select {
   width: 190px;
   text-align: center;
